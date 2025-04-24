@@ -11,6 +11,10 @@ import javax.swing.JPanel;
 
 public class interfaceAPP extends JFrame {
 
+  private JPanel painelIncialHome;
+  private JPanel painelHiragana;
+  private JPanel painelKatakana;
+
   public interfaceAPP() {
     setTitle("APP");
     setSize(800, 600);
@@ -18,9 +22,9 @@ public class interfaceAPP extends JFrame {
     setResizable(false);
     setLocationRelativeTo(null);
 
-    JPanel painelIncialHome = criarPainelInicial();
-    JPanel painelHiragana = CriarPainelHiragana();
-    JPanel painelKatakana = CriarPainelKatakana();
+    painelIncialHome = criarPainelInicial();
+    painelHiragana = CriarPainelHiragana();
+    painelKatakana = CriarPainelKatakana();
 
     getContentPane().add(painelIncialHome);
 
@@ -48,7 +52,10 @@ public class interfaceAPP extends JFrame {
     botaoHiragana.addMouseListener(new java.awt.event.MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent e) {
-
+        getContentPane().removeAll();
+        getContentPane().add(painelHiragana);
+        revalidate();
+        repaint();
       }
     });
 
@@ -72,6 +79,8 @@ public class interfaceAPP extends JFrame {
   public JPanel CriarPainelHiragana() {
 
     JPanel painel = new JPanel();
+
+    setVisible(true);
 
     return painel;
   }
